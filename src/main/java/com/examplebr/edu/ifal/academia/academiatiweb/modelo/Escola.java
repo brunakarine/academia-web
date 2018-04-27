@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Escola {
 	
 	@Id
-	private String id;
+	private Integer id;
 	
 	@OneToMany
 	private List<Curso> cursos = new ArrayList<Curso>();
@@ -25,7 +25,7 @@ public class Escola {
 	@Column
 	private String nome;
 	
-    public Escola(String id, String curso, String professor) {
+    public Escola(Integer id, String curso, String professor) {
 	     super();
 	     this.id = id;
     }
@@ -34,14 +34,16 @@ public class Escola {
 		super();
 	}
 	
-	public String getId() {
+	
+	
+	public Integer getId() {
 		return id;
 	}
-	
-	public void setId(String id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 		

@@ -15,7 +15,7 @@ public class Curso {
 	
 	
 	@javax.persistence.Id
-	private String Id;
+	private Integer id;
 	
 	@Column
 	private String nome;
@@ -27,9 +27,9 @@ public class Curso {
 	private Aluno aluno;
 
 	
-	public Curso(String Id, String nome, Aluno aluno) {
+	public Curso(Integer id, String nome, Aluno aluno) {
 		super();
-		this.Id = Id;
+		this.id = id;
 		this.nome = nome;
 		this.aluno = aluno;
 			
@@ -41,19 +41,19 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [Id=" + Id + ", nome=" + nome + ", disciplina=" + disciplina + ", aluno=" + aluno + "]";
+		return "Curso [id=" + id + ", nome=" + nome + ", disciplina=" + disciplina + ", aluno=" + aluno + "]";
 	}
 
 
-	public String getId() {
-		return Id;
+	
+
+	public Integer getId() {
+		return id;
 	}
 
-
-	public void setId(String id) {
-		Id = id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-
 
 	public String getNome() {
 		return nome;

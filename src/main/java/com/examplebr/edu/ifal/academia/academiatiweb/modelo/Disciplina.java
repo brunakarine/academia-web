@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Disciplina {
 	
 	@Id
-	private String id;
+	private Integer id;
 	
 	private String nome;
 	
@@ -31,7 +31,7 @@ public class Disciplina {
 		super();
 	}
 
-	public Disciplina(String id, String nome, List<Aluno> alunos, List<Professor> professores, List<Assunto> assuntos) {
+	public Disciplina(Integer id, String nome, List<Aluno> alunos, List<Professor> professores, List<Assunto> assuntos) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -40,11 +40,12 @@ public class Disciplina {
 		this.assuntos = assuntos;
 	}
 
-	public String getId() {
+	
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

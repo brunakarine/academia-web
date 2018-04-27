@@ -27,10 +27,7 @@ public class AcademiaTiWebApplicationTests {
 		
 		Curso c = new Curso();
 		
-		c.setAluno(aluno);
-		c.setDisciplina(disciplina);
-		c.setId(id);
-		c.setNome(nome);
+		
 		
 		cursoRepository.save(c);
 		
