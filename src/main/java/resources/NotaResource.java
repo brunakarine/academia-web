@@ -18,11 +18,12 @@ public class NotaResource {
 	NotaRepository notarepository;
 	
 	@RequestMapping(value= "carregar", method= RequestMethod.GET)
-	 public double carregar() {
-		 Nota b = new Nota(2, "Lucas", "empreendedorismo", 8.0);
-		 
-		 notarepository.save(b);
-		 return "b";
+    public String carregar() {
+	 Nota b = new Nota();
+	 
+	 
+	 notarepository.save(b);
+	 return "b";
 		 
 	 }
 	@RequestMapping(value= "{id}", method=RequestMethod.GET)

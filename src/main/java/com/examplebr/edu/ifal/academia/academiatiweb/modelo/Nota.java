@@ -35,6 +35,10 @@ public class Nota {
 		this.valor = valor;
 	}
 
+	
+
+
+
 	public Integer getId() {
 		return id;
 	}

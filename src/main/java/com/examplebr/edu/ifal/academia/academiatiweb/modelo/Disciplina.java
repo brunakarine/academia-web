@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -14,6 +15,7 @@ import javax.persistence.OneToMany;
 public class Disciplina {
 	
 	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	private String nome;
@@ -41,13 +43,6 @@ public class Disciplina {
 	}
 
 	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -60,8 +55,7 @@ public class Disciplina {
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
-
-
+	
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
 	}
@@ -86,6 +80,14 @@ public class Disciplina {
 
 	public void setAssuntos(List<Assunto> assuntos) {
 		this.assuntos = assuntos;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

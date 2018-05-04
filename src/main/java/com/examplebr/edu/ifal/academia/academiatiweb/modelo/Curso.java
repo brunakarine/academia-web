@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,6 +17,7 @@ public class Curso {
 	
 	
 	@javax.persistence.Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	@Column
@@ -23,27 +26,22 @@ public class Curso {
 	@OneToMany
 	private List<Disciplina> disciplina = new ArrayList<>();
 	
-	@Column
-	private Aluno aluno;
-	
-	
 
-	
-	public Curso(Integer id, String nome, Aluno aluno) {
+	public Curso(String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.aluno = aluno;
-			
+		
 	}
 	
 	public Curso() {
 		super();
 	}
 
+
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", nome=" + nome + ", disciplina=" + disciplina + ", aluno=" + aluno + "]";
+		return "Curso [id=" + id + ", nome=" + nome + ", disciplina=" + disciplina +  "]";
 	}
 
 
@@ -64,18 +62,6 @@ public class Curso {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-
-
-
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
 	}
 
 

@@ -41,9 +41,14 @@ public class AlunoResourceTest {
 		
 		repositorio.deleteAll();
 		
-		repositorio.save(new Aluno(  1, "lucas", "96547", "empreendedorismo" ));
+		Aluno a1 = new Aluno();
 		
-		repositorio.save(new Aluno(  2, "ana", "85547", "manutenção" ));
+		Aluno a2 = new Aluno();
+		
+		
+		repositorio.save(a1);
+		
+		repositorio.save(a2);
 		
 		
 		restTemplate = new RestTemplate();

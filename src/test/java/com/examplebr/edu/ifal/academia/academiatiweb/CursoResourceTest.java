@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
+import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Curso;
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -38,14 +39,19 @@ public class CursoResourceTest {
 	
 	@Before
 	public void setUp(){
-		repositorio.deleteAll();
+   repositorio.deleteAll();
 		
-		repositorio.save(new Curso(9, "informatica", "lucrecia", "lucas"));
+		Curso c1 = new Curso();
 		
-		repositorio.save(new Curso(10, "logistica", "josue", "Ana"));
+		Curso c2 = new Curso();
 		
+		c1.setNome("Logistica");
+	    c2.setNome("informatica");
 		
-		restTemplate = new RestTemplate();
+		repositorio.save(c1);
+		
+		repositorio.save(c2);
+		
 	
 	}
 

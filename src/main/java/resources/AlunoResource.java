@@ -9,22 +9,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.TIPO_ALUNO;
+
 
 import repositories.AlunoRepository;
 
 @RestController
-@RequestMapping("/aluno")
+@RequestMapping("/api/aluno")
 public class AlunoResource {
+	
 	
 	@Autowired
 	 AlunoRepository alunoRepository;
 	
 	 @RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		 Aluno k = new Aluno("Lucas", "7514", "empreendedorismo", "rua da alegria", "82994254409", BOLSISTA_ASSISTENCIA);
+		 Aluno a = new Aluno();
 		 
-		 alunoRepository.save(k);
+		 a.setNome("THiago");
+		 
+		 
+		 
+		 alunoRepository.save(a);
 		 return "ok";
 		 
 	 }
