@@ -16,19 +16,19 @@ import repositories.AssuntoRepository;
 public class AssuntoResource {
 	
 	@Autowired
-	 AssuntoRepository escolaRepository;
+	 AssuntoRepository assuntoRepository;
 	 
 	 @RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
 		 Assunto e = new Assunto("IFAL-RL");
 		 
-		 escolaRepository.save(e);
+		 assuntoRepository.save(e);
 		 return "ok";
 		 
 	 }
 	 
 	@RequestMapping(value= "{id}", method=RequestMethod.GET)
-	public Assunto buscar(@PathVariable("id") int id) {
+	public Assunto buscar(@PathVariable("id") Integer id) {
 		return assuntoRepository.getOne(id);
 		
 	}

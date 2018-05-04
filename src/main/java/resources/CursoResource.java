@@ -19,14 +19,13 @@ public class CursoResource {
 	
 	@RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		 Curso i = new Curso(3, "informatica", "enpreendedorismo", "Lucas");
-		 
+		 Curso i = new Curso("informatica", "enpreendedorismo", "Lucas");	 
 		 cursorepository.save(i);
 		 return "ok";
 		 
 	 }
 	@RequestMapping(value= "{id}", method=RequestMethod.GET)
-	public Curso buscar(@PathVariable("id") int id) {
+	public Curso buscar(@PathVariable("id") Integer id) {
 		return cursorepository.getOne(id);
 		
 	}

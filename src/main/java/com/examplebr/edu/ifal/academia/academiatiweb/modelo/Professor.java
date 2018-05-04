@@ -16,6 +16,7 @@ public class Professor {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	private String nome;
 
 

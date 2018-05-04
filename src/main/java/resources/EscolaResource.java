@@ -23,7 +23,7 @@ public class EscolaResource {
 	 
 	 @RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		 Escola e = new Escola("IFAL-RL");
+		 Escola e = new Escola(null, "IFAL-RL", null);
 		 
 		 escolaRepository.save(e);
 		 return "ok";
@@ -31,7 +31,7 @@ public class EscolaResource {
 	 }
 	 
 	@RequestMapping(value= "{id}", method=RequestMethod.GET)
-	public Escola buscar(@PathVariable("id") int id) {
+	public Escola buscar(@PathVariable("id") Integer id) {
 		return escolaRepository.getOne(id);
 		
 	}

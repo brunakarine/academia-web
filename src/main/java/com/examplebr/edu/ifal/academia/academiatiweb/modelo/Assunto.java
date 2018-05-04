@@ -12,12 +12,12 @@ public class Assunto {
 	
 	@Id
 	@GeneratedValue
-	private String Id;
+	private Integer Id;
 	
 	private String nome;
 
 	
-	public Assunto(String id, String nome) {
+	public Assunto(Integer id, String nome) {
 		super();
 		Id = id;
 		this.nome = nome;
@@ -27,12 +27,17 @@ public class Assunto {
 	public Assunto() {
 		super();
 	}
+	public Assunto(String nome) {
+		this.nome = nome;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Assunto [Id=" + Id + ", nome=" + nome + "]";
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		Id = id;
 	}
 

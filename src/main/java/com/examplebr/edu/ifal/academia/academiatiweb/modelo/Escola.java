@@ -30,11 +30,11 @@ public class Escola {
 	     this.id = id;
     }
 
-	public Escola() {
-		super();
+	
+	@Override
+	public String toString() {
+	return "Escola [Id=" + id + ", curso=" + cursos + ", Professor="+ professores+", nome=" + nome + ",]";
 	}
-	
-	
 	
 	public Integer getId() {
 		return id;
@@ -42,6 +42,23 @@ public class Escola {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
+	}
+
+	public List<Professor> getProfessores() {
+		return professores;
+	}
+
+	public void setProfessores(List<Professor> professores) {
+		this.professores = professores;
 	}
 
 	public void setNome(String nome) {

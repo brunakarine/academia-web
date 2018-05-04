@@ -25,6 +25,8 @@ public class Curso {
 	
 	@Column
 	private Aluno aluno;
+	
+	
 
 	
 	public Curso(Integer id, String nome, Aluno aluno) {

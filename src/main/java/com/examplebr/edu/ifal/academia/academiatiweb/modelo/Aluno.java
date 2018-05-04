@@ -2,6 +2,7 @@ package com.examplebr.edu.ifal.academia.academiatiweb.modelo;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -51,6 +52,20 @@ public class Aluno{
 	public Aluno() {
 		super();
 	}
+	
+
+	public Aluno(Integer id, String nome, String matricula, Set<Disciplina> disciplinas, Endereco endereco,
+			List<String> telefones, TIPO_ALUNO tipoAluno) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.matricula = matricula;
+		this.disciplinas = disciplinas;
+		this.endereco = endereco;
+		this.telefones = telefones;
+		this.tipoAluno = tipoAluno;
+	}
+
 
 	public String getMatricula() {
 		return matricula;
@@ -89,6 +104,14 @@ public class Aluno{
 
 	public void setTelefones(java.util.List<String> telefones) {
 		this.telefones = telefones;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }

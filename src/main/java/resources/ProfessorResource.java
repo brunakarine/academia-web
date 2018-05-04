@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
+import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Tipo_professor;
 
 import repositories.ProfessorRepository;
 
@@ -19,7 +20,7 @@ public class ProfessorResource {
 	 
 	 @RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		Professor e = new Professor(5,"moises", "51278");
+		Professor e = new Professor(5,"moises", "51278", Tipo_professor.efetivo);
 		 
 		 professorRepository.save(e);
 		 return "ok";
