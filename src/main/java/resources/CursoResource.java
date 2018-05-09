@@ -19,7 +19,7 @@ public class CursoResource {
 	
 	@RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		 Curso i = new Curso("informatica");	 
+		 Curso i = new Curso( null, "informatica", null);	 
 		 cursorepository.save(i);
 		 return "ok";
 		 

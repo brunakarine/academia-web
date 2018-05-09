@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
 
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.TIPO_ALUNO;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

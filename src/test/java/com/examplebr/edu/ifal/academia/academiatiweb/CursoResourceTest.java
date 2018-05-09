@@ -13,9 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
+
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Curso;
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

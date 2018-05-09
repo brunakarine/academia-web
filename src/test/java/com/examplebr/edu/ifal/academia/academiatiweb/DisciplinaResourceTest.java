@@ -13,9 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
+
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Disciplina;
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,9 +39,9 @@ final String BASE_PATH = "http://localhost:8080/disciplina";
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		repositorio.save(new Disciplina(12, "empreendedorismo", "Lucas","plano de negocio", "moies"));
+		repositorio.save(new Disciplina("POO"));
 		
-		repositorio.save(new Disciplina(13, "manutenção", "Ana", "placa mãe", "lucrecia"));
+		repositorio.save(new Disciplina("manutenção"));
 		
 		
 		restTemplate = new RestTemplate();

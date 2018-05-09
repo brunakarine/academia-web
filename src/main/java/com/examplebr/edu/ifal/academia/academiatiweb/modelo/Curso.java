@@ -27,11 +27,11 @@ public class Curso {
 	private List<Disciplina> disciplina = new ArrayList<>();
 	
 
-	public Curso(String nome) {
+	public Curso(Integer id, String nome, List<Disciplina> disciplinas) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		
+		this.disciplina = disciplinas;
 	}
 	
 	public Curso() {

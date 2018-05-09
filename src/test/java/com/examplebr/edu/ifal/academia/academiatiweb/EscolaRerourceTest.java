@@ -40,9 +40,9 @@ final String BASE_PATH = "http://localhost:8080/escola";
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		repositorio.save(new Escola(4, "informatica", "Lucrecia","IFAL Campus-RL"));
+		repositorio.save(new Escola("IFAL Campus-RL"));
 		
-		repositorio.save(new Escola(6, "logistica", "moises","IFAL Campus-Meceió"));
+		repositorio.save(new Escola("IFAL Campus-Meceió"));
 		
 		restTemplate = new RestTemplate();
 	

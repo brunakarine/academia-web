@@ -32,6 +32,15 @@ public class Disciplina {
 	public Disciplina() {
 		super();
 	}
+	
+	
+
+	public Disciplina(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+
 
 	public Disciplina(Integer id, String nome, List<Aluno> alunos, List<Professor> professores, List<Assunto> assuntos) {
 		super();
