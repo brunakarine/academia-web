@@ -10,7 +10,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Endereco;
 import repositories.EnderecoRepository;
 
 @RestController
-@RequestMapping("/escola")
+@RequestMapping("api/escola")
 public class EnderecoResource {
 
 	@Autowired

@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Escola;
-import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,17 +36,23 @@ final String BASE_PATH = "http://localhost:8080/escola";
 	
 	@Before
 	public void setUp(){
+		
 		repositorio.deleteAll();
 		
-		repositorio.save(new Escola("IFAL Campus-RL"));
 		
-		repositorio.save(new Escola("IFAL Campus-Meceió"));
+        Escola e1 = new Escola();
 		
-		restTemplate = new RestTemplate();
-	
+		Escola e2 = new Escola();
+		
+		e1.setNome("IFAL Campus-RL");
+	    e2.setNome("IFAL Campus-Meceió");
+		
+		repositorio.save(e1);
+		
+		repositorio.save(e2);
+			
 	}
 
-	
 
 	@Test
 	public void testdeveFuncionarAListagemDeTodosAsEscolas() throws JsonParseException, JsonMappingException, IOException {

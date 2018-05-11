@@ -11,7 +11,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Nota;
 import repositories.NotaRepository;
 
 @RestController
-@RequestMapping("/nota")
+@RequestMapping("api/nota")
 public class NotaResource {
 	
 	@Autowired

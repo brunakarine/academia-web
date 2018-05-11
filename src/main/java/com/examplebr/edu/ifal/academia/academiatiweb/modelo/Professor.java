@@ -64,4 +64,14 @@ public class Professor {
 	public void setTipo_professor(Tipo_professor tipo_professor) {
 		this.tipo_professor = tipo_professor;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
 }

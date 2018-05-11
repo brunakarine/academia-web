@@ -38,9 +38,9 @@ final String BASE_PATH = "http://localhost:8080/nota";
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		repositorio.save(new Nota(15, "Lucas", "empreendedorismo", 8.0));
+		repositorio.save(new Nota( ));
 		
-		repositorio.save(new Nota(16, "Ana", "manutenção", 9.5));
+		repositorio.save(new Nota());
 		
 		
 		restTemplate = new RestTemplate();

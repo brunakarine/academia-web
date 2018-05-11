@@ -12,7 +12,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Tipo_professor;
 import repositories.ProfessorRepository;
 
 @RestController
-@RequestMapping("/professor")
+@RequestMapping("api/professor")
 public class ProfessorResource {
 	
 	@Autowired

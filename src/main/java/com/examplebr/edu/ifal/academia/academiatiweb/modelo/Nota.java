@@ -34,9 +34,11 @@ public class Nota {
 		this.disciplina = disciplina;
 		this.valor = valor;
 	}
-
+	@Override
+	public String toString() {
+	  return "Nota [Id=" + id + ", Aluno=" + aluno + ", Disciplina="+ disciplina+", Valor=" + valor + ",]";
+	}
 	
-
 
 
 	public Integer getId() {

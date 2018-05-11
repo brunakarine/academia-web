@@ -11,7 +11,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Curso;
 import repositories.CursoRepository;
 
 @RestController
-@RequestMapping("/curso")
+@RequestMapping("api/curso")
 public class CursoResource {
 	
 	@Autowired

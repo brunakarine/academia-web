@@ -12,7 +12,7 @@ import repositories.AssuntoRepository;
 
 
 @RestController
-@RequestMapping("/assunto")
+@RequestMapping("api/assunto")
 public class AssuntoResource {
 	
 	@Autowired

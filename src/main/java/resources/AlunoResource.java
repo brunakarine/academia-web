@@ -21,7 +21,7 @@ public class AlunoResource {
 	@Autowired
 	 AlunoRepository alunoRepository;
 	
-	 @RequestMapping(value= "carregar", method= RequestMethod.GET)
+	 @RequestMapping(value= "/carregar", method= RequestMethod.GET)
 	 public String carregar() {
 		 Aluno a = new Aluno();
 		 
@@ -41,12 +41,12 @@ public class AlunoResource {
 	}
 	
 
-	@RequestMapping(value= "listar", method=RequestMethod.GET)
+	@RequestMapping(value="/listar", method=RequestMethod.GET)
 	public List<Aluno> listar() {
 		return alunoRepository.findAll();
 	}
 	
-	@RequestMapping(value= "pesquisar", method=RequestMethod.GET)
+	@RequestMapping(value= "/pesquisar", method=RequestMethod.GET)
 	public List<Aluno> pesquisar() {
 	return alunoRepository.findAll();
 	

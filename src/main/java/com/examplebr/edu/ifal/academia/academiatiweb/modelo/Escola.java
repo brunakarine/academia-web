@@ -25,15 +25,23 @@ public class Escola {
 	@Column
 	private String nome;
 	
-    public Escola(Integer id, String curso, String professor) {
-	     super();
-	     this.id = id;
-    }
-
+    
 	
+	public Escola(Integer id, List<Curso> cursos, List<Professor> professores, String nome) {
+		super();
+		this.id = id;
+		this.cursos = cursos;
+		this.professores = professores;
+		this.nome = nome;
+	}
+
+	public Escola() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-	return "Escola [Id=" + id + ", curso=" + cursos + ", Professor="+ professores+", nome=" + nome + ",]";
+	  return "Escola [Id=" + id + ", curso=" + cursos + ", Professor="+ professores+", nome=" + nome + ",]";
 	}
 	
 	public Integer getId() {
@@ -60,10 +68,15 @@ public class Escola {
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
 	}
+	
+
+	public String getNome() {
+		return nome;
+	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
 		
 	}
-	
+
 }

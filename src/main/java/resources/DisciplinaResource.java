@@ -11,7 +11,7 @@ import repositories.DisciplinaRepository;
 
 
 @RestController
-@RequestMapping("/diciplina")
+@RequestMapping("api/diciplina")
 public class DisciplinaResource {
 	
 	@Autowired

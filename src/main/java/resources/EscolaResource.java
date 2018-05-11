@@ -13,7 +13,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Escola;
 import repositories.EscolaRepository;
 
 @RestController
-@RequestMapping("/escola")
+@RequestMapping("api/escola")
 public class EscolaResource {
 	
 	
@@ -23,7 +23,7 @@ public class EscolaResource {
 	 
 	 @RequestMapping(value= "carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		 Escola e = new Escola(null, "IFAL-RL", null);
+		 Escola e = new Escola();
 		 
 		 escolaRepository.save(e);
 		 return "ok";
