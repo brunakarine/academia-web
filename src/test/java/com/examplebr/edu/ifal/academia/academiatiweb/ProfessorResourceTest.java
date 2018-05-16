@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
+import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Tipo_professor;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +24,7 @@ import repositories.ProfessorRepository;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ProfessorResourceTest {
 	
-	final String BASE_PATH = "http://localhost:8080/professor";
+	final String BASE_PATH = "http://localhost:8080/api/professor";
 	
 	@Autowired
 	private ProfessorRepository repositorio;
@@ -37,11 +37,18 @@ public class ProfessorResourceTest {
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		repositorio.save(new Professor(3, "514793", "lucrecia"));
+		Professor e1 = new Professor("132","João",Tipo_professor.efetivo);
 		
-		repositorio.save(new Professor(8, "47892", "josue"));
+		Professor e2 = new Professor("112","Maria",Tipo_professor.efetivo);
 		
-		repositorio.save(new Professor(7, "78945", "Elaine Block"));
+		Professor e3 = new Professor("245", "carol", Tipo_professor.efetivo);
+		
+		repositorio.save(e1);
+		
+		repositorio.save(e2);
+		
+		repositorio.save(e3);
+		
 		
 		restTemplate = new RestTemplate();
 	
@@ -60,5 +67,23 @@ public class ProfessorResourceTest {
 		assertEquals(tamanhoDaListaDeProfessoresesperado, professores.size());
 		
 	}
-
+	@Test
+	public void deveFuncionarACriacaoDeUmNovoProfessor() throws JsonParseException, JsonMappingException, IOException {
+		
+		Professor professor = new Professor("456", 
+				"Paulo", Tipo_professor.efetivo);
+		
+		restTemplate.postForObject(BASE_PATH+"/salvar", 
+				professor, Professor.class);
+		
+		String resposta = restTemplate.
+				getForObject(BASE_PATH+ "/listar", String.class);
+		
+		List<Professor> professores = MAPPER.readValue(resposta,
+				MAPPER.getTypeFactory().
+				constructCollectionLikeType(List.class, Professor.class));
+		
+		assertEquals("Paulo", professores.get(0).getNome());
+		
+}
 }

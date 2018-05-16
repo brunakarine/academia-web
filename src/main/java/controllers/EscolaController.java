@@ -1,7 +1,8 @@
 package controllers;
 
-import javax.validation.Valid;
+import java.util.List;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,54 +17,59 @@ import repositories.EscolaRepository;
 @Controller
 @RequestMapping("/escola")
 public class EscolaController {
+	
 	@Autowired
 	EscolaRepository escolaRepository;
-	
-	@RequestMapping(value= "/list", method=RequestMethod.GET)
-	public String Escola(ModelMap model) {
-		Escola escola  = escolaRepository.findAll();
-		
-		model.addAttribute("Escola", escola);
-		
-		model.addAttribute("massage", "escola");
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String listEscola(ModelMap model) {
+		List<Escola> escolas = escolaRepository.findAll();
+
+		model.addAttribute("escola", escolas);
+
+		model.addAttribute("message", "Lista de Escolas");
 		System.out.println("list");
-		
-		return "escola";
+
+		return "escola/list";
 
 	}
-	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
+
+	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
 	public String saveEscola(ModelMap model) {
-		
+
 		Escola escola = new Escola();
 		model.addAttribute("escola", escola);
 		model.addAttribute("edit", false);
-		
+
 		return "escola/from";
-		
+
 	}
-	@RequestMapping (value= {"/edit-{id}-escola"}, method = RequestMethod.GET)
-	public String editEscola(@PathVariable("id") Integer id, ModelMap model) {	
+
+	@RequestMapping(value = { "/edit-{id}-escola" }, method = RequestMethod.GET)
+	public String editEscola(@PathVariable("id") Integer id, ModelMap model) {
 		Escola escola = escolaRepository.getOne(id);
 		model.addAttribute("escola", escola);
 		model.addAttribute("edit", true);
 		return "escola/from";
 
 	}
-	@RequestMapping (value= {"/edit-{id}-escola"}, method = RequestMethod.POST)
-	public String updateAluno(@Valid Escola escola, BindingResult result, ModelMap model) {	
-		if(result.hasErrors()) {
+
+	@RequestMapping(value = { "/edit-{id}-escola" }, method = RequestMethod.POST)
+	public String updateAluno(@Valid Escola escola, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
 			return "escola/from";
 		}
-		
+
 		escolaRepository.saveAndFlush(escola);
-		
+
 		model.addAttribute("mensagem", "Escola" + escola.getNome() + "atualizado com sucesso");
 
 		return "redirect:/escola/list";
- }
-	@RequestMapping (value= {"/delete-{id}-escola"}, method = RequestMethod.GET)
-	public String deleteEmployee(@PathVariable Integer id) {	
+	}
+
+	@RequestMapping(value = { "/delete-{id}-escola" }, method = RequestMethod.GET)
+	public String deleteEmployee(@PathVariable Integer id) {
 		escolaRepository.deleteById(id);
 		return "redirect:/escola/list";
-	}	
+	}
 }

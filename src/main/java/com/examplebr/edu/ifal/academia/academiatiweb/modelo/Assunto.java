@@ -5,40 +5,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
-
 @Entity
 @Table(name = "assunto")
 public class Assunto {
-	
+
 	@Id
 	@GeneratedValue
-	private Integer Id;
-	
+	private Integer id;
+
 	private String nome;
 
-	
-	public Assunto(Integer id, String nome) {
-		super();
-		Id = id;
+	public Assunto( String nome) {
+		super();	
 		this.nome = nome;
 	}
 
-	
 	public Assunto() {
 		super();
 	}
-	public Assunto(String nome) {
-		this.nome = nome;
-	}
-
 
 	@Override
 	public String toString() {
-		return "Assunto [Id=" + Id + ", nome=" + nome + "]";
-	}
-
-	public void setId(Integer id) {
-		Id = id;
+		return "Assunto [id=" + id + ", nome=" + nome + "]";
 	}
 
 	public String getNome() {
@@ -48,11 +36,13 @@ public class Assunto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 52;
 		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 
@@ -65,14 +55,17 @@ public class Assunto {
 		if (getClass() != obj.getClass())
 			return false;
 		Assunto other = (Assunto) obj;
-		if (Id == null) {
-			if (other.Id != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!Id.equals(other.Id))
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

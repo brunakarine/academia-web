@@ -12,47 +12,48 @@ import javax.persistence.Table;
 @Table(name = "professor")
 public class Professor {
 
-
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
-	private String nome;
 
+	private String nome;
 
 	@Column(length = 8, name = "matricula_professor", nullable = false)
 	private String matricula;
-	
-	@Column()
+
 	@Enumerated(EnumType.STRING)
 	private Tipo_professor tipo_professor = Tipo_professor.efetivo;
-	
-	public Professor(Integer id, String matricula, String nome, Tipo_professor tipo_professor) {
+
+	public Professor(String matricula, String nome, Tipo_professor tipo_professor) {
 		super();
 		this.matricula = matricula;
+		this.nome = nome;
 		this.tipo_professor = tipo_professor;
 	}
-	
-	public Professor(Integer id, String matricula, String nome) {
-		super();
-		this.matricula = matricula;
-		this.tipo_professor = Tipo_professor.efetivo;
-	}
-	
-	
+
 	public Professor() {
 		super();
-		
+
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Professor [Id=" + id + ", matricula=" + matricula + ", nome=" + nome + ", tipo_professor="+ tipo_professor+"]";
+		return "Professor [Id=" + id + ", matricula=" + matricula + ", nome=" + nome + ", tipo_professor="
+				+ tipo_professor + "]";
 	}
-	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public String getMatricula() {
 		return matricula;
 	}
+
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
@@ -65,13 +66,47 @@ public class Professor {
 		this.tipo_professor = tipo_professor;
 	}
 
-	public String getNome() {
-		return nome;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
+		result = prime * result + ((tipo_professor == null) ? 0 : tipo_professor.hashCode());
+		return result;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Professor other = (Professor) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (matricula == null) {
+			if (other.matricula != null)
+				return false;
+		} else if (!matricula.equals(other.matricula))
+			return false;
+		if (tipo_professor == null) {
+			if (other.tipo_professor != null)
+				return false;
+		} else if (!tipo_professor.equals(other.tipo_professor))
+			return false;
+
+		return true;
 	}
-
-
 }

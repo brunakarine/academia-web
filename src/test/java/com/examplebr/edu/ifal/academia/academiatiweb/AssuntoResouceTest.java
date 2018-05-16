@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Assunto;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -39,9 +38,13 @@ final String BASE_PATH = "http://localhost:8080/assunto";
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		repositorio.save(new Assunto(19, "plano de negocio"));
+        Assunto a1 = new Assunto();
 		
-		repositorio.save(new Assunto(18, "placa mãe"));
+		Assunto a2 = new Assunto();
+		
+		repositorio.save(a1);
+		
+		repositorio.save(a2);
 		
 		
 		restTemplate = new RestTemplate();

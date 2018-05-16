@@ -27,7 +27,7 @@ import repositories.AlunoRepository;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class AlunoResourceTest {
 	
-	final String BASE_PATH = "http://localhost:8080/aluno";
+	final String BASE_PATH = "http://localhost:8080/api/aluno";
 	
 	@Autowired
 	private AlunoRepository repositorio;
@@ -45,17 +45,17 @@ public class AlunoResourceTest {
 		
 		Aluno a2 = new Aluno();
 		
+		Aluno a3 = new Aluno();
 		
 		repositorio.save(a1);
 		
 		repositorio.save(a2);
 		
+		repositorio.save(a3);
 		
 		restTemplate = new RestTemplate();
 	
 	}
-	
-	
 	
 	@Test
 	public void testdeveFuncionarAListagemDeTodosOsAlunos() throws JsonParseException, JsonMappingException, IOException {

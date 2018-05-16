@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +24,12 @@ public class CursoController {
 	CursoRepository cursoRepository;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String Curso(ModelMap model) {
-		Curso curso = cursoRepository.findAll();
+	public String listCurso(ModelMap model) {
+		List<Curso> cursos = cursoRepository.findAll();
 
-		model.addAttribute("Curso", curso);
+		model.addAttribute("Curso", cursos);
 
-		model.addAttribute("massage", "curso");
+		model.addAttribute("message", "Lista de Cursos");
 		System.out.println("list");
 
 		return "curso";

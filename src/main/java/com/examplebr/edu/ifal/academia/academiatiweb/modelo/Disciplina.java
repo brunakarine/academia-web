@@ -13,45 +13,34 @@ import javax.persistence.OneToMany;
 @Entity
 @Table(name = "disciplina")
 public class Disciplina {
-	
+
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
+
 	private String nome;
-	
+
 	@OneToMany
 	private List<Aluno> alunos = new ArrayList<Aluno>();
-	
+
 	@OneToMany
 	private List<Assunto> assuntos = new ArrayList<Assunto>();
-	
+
 	@ManyToMany
 	private List<Professor> professores;
 
 	public Disciplina() {
 		super();
 	}
-	
-	
 
-	public Disciplina(String nome) {
+	public Disciplina(Integer id, String nome, List<Aluno> alunos, List<Professor> professores,
+			List<Assunto> assuntos) {
 		super();
-		this.nome = nome;
-	}
-
-
-
-	public Disciplina(Integer id, String nome, List<Aluno> alunos, List<Professor> professores, List<Assunto> assuntos) {
-		super();
-		this.id = id;
 		this.nome = nome;
 		this.alunos = alunos;
 		this.professores = professores;
 		this.assuntos = assuntos;
 	}
-
-	
 
 	public String getNome() {
 		return nome;
@@ -64,13 +53,11 @@ public class Disciplina {
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
-	
+
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
 	}
 
-	
-	
 	public List<Professor> getProfessores() {
 		return professores;
 	}
@@ -80,7 +67,8 @@ public class Disciplina {
 	}
 
 	public String toString() {
-		return "Disciplina[Id=" + id + ", aluno=" + alunos + ", assunto="+ assuntos + ", professores=" + professores.toString() +"]";
+		return "Disciplina[Id=" + id + ", aluno=" + alunos + ", assunto=" + assuntos + ", professores="
+				+ professores.toString() + "]";
 	}
 
 	public List<Assunto> getAssuntos() {
@@ -91,12 +79,52 @@ public class Disciplina {
 		this.assuntos = assuntos;
 	}
 
-	public Integer getId() {
-		return id;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((alunos == null) ? 0 : alunos.hashCode());
+		result = prime * result + ((professores == null) ? 0 : professores.hashCode());
+		result = prime * result + ((assuntos == null) ? 0 : assuntos.hashCode());
+		return result;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Disciplina other = (Disciplina) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (alunos == null) {
+			if (other.alunos != null)
+				return false;
+		} else if (!alunos.equals(other.alunos))
+			return false;
+		if (professores == null) {
+			if (other.professores != null)
+				return false;
+		} else if (!professores.equals(other.professores))
+			return false;
+		if (assuntos == null) {
+			if (other.assuntos != null)
+				return false;
+		} else if (!assuntos.equals(other.assuntos))
+			return false;
+		return true;
 	}
-
 }

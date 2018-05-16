@@ -11,13 +11,13 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Nota;
 import repositories.NotaRepository;
 
 @RestController
-@RequestMapping("api/nota")
+@RequestMapping("/api/nota")
 public class NotaResource {
 	
 	@Autowired
 	NotaRepository notarepository;
 	
-	@RequestMapping(value= "carregar", method= RequestMethod.GET)
+	@RequestMapping(value= "/carregar", method= RequestMethod.GET)
     public String carregar() {
 	 Nota b = new Nota();
 	 
@@ -26,19 +26,19 @@ public class NotaResource {
 	 return "b";
 		 
 	 }
-	@RequestMapping(value= "{id}", method=RequestMethod.GET)
+	@RequestMapping(value= "/{id}", method=RequestMethod.GET)
 	public Nota buscar(@PathVariable("id") int id) {
 		return notarepository.getOne(id);
 		
 	}
 	
 
-	@RequestMapping(value= "listar", method=RequestMethod.GET)
+	@RequestMapping(value= "/listar", method=RequestMethod.GET)
 	public List<Nota> listar() {
 		return notarepository.findAll();
 	}
 	
-	@RequestMapping(value= "pesquisar", method=RequestMethod.GET)
+	@RequestMapping(value= "/pesquisar", method=RequestMethod.GET)
 	public List<Nota> pesquisar() {
 	return notarepository.findAll();
 	

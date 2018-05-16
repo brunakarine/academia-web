@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
-
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Disciplina;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,9 +36,13 @@ final String BASE_PATH = "http://localhost:8080/disciplina";
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		repositorio.save(new Disciplina("POO"));
+		Disciplina k1 = new Disciplina();
 		
-		repositorio.save(new Disciplina("manutenção"));
+		Disciplina k2 = new Disciplina();
+		
+		repositorio.save(k1);
+		
+		repositorio.save(k2);
 		
 		
 		restTemplate = new RestTemplate();
