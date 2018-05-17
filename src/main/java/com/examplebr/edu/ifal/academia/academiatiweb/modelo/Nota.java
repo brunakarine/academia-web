@@ -2,14 +2,12 @@ package com.examplebr.edu.ifal.academia.academiatiweb.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -33,25 +31,16 @@ public class Nota {
 	public Nota() {
 		super();
 	}
-	
-	public Nota(Integer id, Aluno aluno, Disciplina disciplina, double valor) {
-		super();
-		this.id = id;
-		this.aluno = aluno;
-		this.disciplina = disciplina;
-		this.valor = valor;
-	}
 	@Override
 	public String toString() {
 	  return "Nota [Id=" + id + ", Aluno=" + aluno + ", Disciplina="+ disciplina+", Valor=" + valor + ",]";
 	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+	
+	public Nota(Aluno aluno, Disciplina disciplina, double valor) {
+		super();
+		this.aluno = aluno;
+		this.disciplina = disciplina;
+		this.valor = valor;
 	}
 
 	public Aluno getAluno() {

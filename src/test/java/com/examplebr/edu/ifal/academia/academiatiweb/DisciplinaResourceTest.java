@@ -63,7 +63,7 @@ final String BASE_PATH = "http://localhost:8080/api/disciplina";
 		
 	}
 	@Test
-	public void deveFuncionarACriacaoDeUmNovoDisciplina() throws JsonParseException, JsonMappingException, IOException {
+	public void deveFuncionarACriacaoDeUmaNovaDisciplina() throws JsonParseException, JsonMappingException, IOException {
 		
 		Disciplina disciplina = new Disciplina("geografia", null, null, null);
 		

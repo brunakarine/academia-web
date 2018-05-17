@@ -2,7 +2,6 @@ package com.examplebr.edu.ifal.academia.academiatiweb.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
@@ -32,6 +31,7 @@ public class Disciplina {
 	public Disciplina() {
 		super();
 	}
+	
 	public String toString() {
 		return "Disciplina[Id=" + id + ", aluno=" + alunos + ", assunto=" + assuntos + ", professores="
 				+ professores.toString() + "]";

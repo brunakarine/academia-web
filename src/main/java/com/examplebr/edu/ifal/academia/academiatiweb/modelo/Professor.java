@@ -33,7 +33,6 @@ public class Professor {
 
 	public Professor() {
 		super();
-
 	}
 
 	@Override

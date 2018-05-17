@@ -15,7 +15,6 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Tipo_professor;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import repositories.ProfessorRepository;
 
 @RunWith(SpringRunner.class)
