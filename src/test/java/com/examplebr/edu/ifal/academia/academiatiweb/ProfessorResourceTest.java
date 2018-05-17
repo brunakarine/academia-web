@@ -1,10 +1,8 @@
 package com.examplebr.edu.ifal.academia.academiatiweb;
 
 import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,7 +47,6 @@ public class ProfessorResourceTest {
 		
 		repositorio.save(e3);
 		
-		
 		restTemplate = new RestTemplate();
 	
 	}
@@ -65,8 +62,8 @@ public class ProfessorResourceTest {
 		
 		int tamanhoDaListaDeProfessoresesperado = 3;
 		assertEquals(tamanhoDaListaDeProfessoresesperado, professores.size());
-		
 	}
+	
 	@Test
 	public void deveFuncionarACriacaoDeUmNovoProfessor() throws JsonParseException, JsonMappingException, IOException {
 		

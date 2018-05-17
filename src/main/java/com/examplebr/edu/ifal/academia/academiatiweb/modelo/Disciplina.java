@@ -32,8 +32,12 @@ public class Disciplina {
 	public Disciplina() {
 		super();
 	}
+	public String toString() {
+		return "Disciplina[Id=" + id + ", aluno=" + alunos + ", assunto=" + assuntos + ", professores="
+				+ professores.toString() + "]";
+	}
 
-	public Disciplina(Integer id, String nome, List<Aluno> alunos, List<Professor> professores,
+	public Disciplina(String nome, List<Aluno> alunos, List<Professor> professores,
 			List<Assunto> assuntos) {
 		super();
 		this.nome = nome;
@@ -64,11 +68,6 @@ public class Disciplina {
 
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
-	}
-
-	public String toString() {
-		return "Disciplina[Id=" + id + ", aluno=" + alunos + ", assunto=" + assuntos + ", professores="
-				+ professores.toString() + "]";
 	}
 
 	public List<Assunto> getAssuntos() {

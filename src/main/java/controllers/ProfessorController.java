@@ -1,9 +1,7 @@
 package controllers;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
-
 import repositories.ProfessorRepository;
 
 @Controller
@@ -63,7 +60,8 @@ public class ProfessorController {
 		model.addAttribute("mensagem", "professor" + professor.getNome() + "atualizado com sucesso");
 
 		return "redirect:/professor/list";
- }
+	}
+	
 	@RequestMapping (value= {"/delete-{id}-aluno"}, method = RequestMethod.GET)
 	public String deleteEmployee(@PathVariable Integer id) {	
 		professorRepository.deleteById(id);

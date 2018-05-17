@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,13 +19,17 @@ public class AlunoResource {
 
 	@Autowired
 	AlunoRepository alunoRepository;
-
+	
+	@RequestMapping(value= "/salvar", method= RequestMethod.POST)
+	 public Aluno salvar(@RequestBody Aluno aluno) { 
+		 alunoRepository.save(aluno);
+		 return aluno;
+	 }
+		
 	@RequestMapping(value = "/carregar", method = RequestMethod.GET)
 	public String carregar() {
 		Aluno a = new Aluno();
-
 		a.setNome("Theo");
-
 		alunoRepository.save(a);
 		return "ok";
 

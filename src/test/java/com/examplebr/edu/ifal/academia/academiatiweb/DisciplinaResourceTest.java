@@ -1,10 +1,8 @@
 package com.examplebr.edu.ifal.academia.academiatiweb;
 
 import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,14 +14,13 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Disciplina;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import repositories.DisciplinaRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class DisciplinaResourceTest {
 	
-final String BASE_PATH = "http://localhost:8080/disciplina";
+final String BASE_PATH = "http://localhost:8080/api/disciplina";
 	
 	@Autowired
 	private DisciplinaRepository repositorio;
@@ -40,10 +37,13 @@ final String BASE_PATH = "http://localhost:8080/disciplina";
 		
 		Disciplina k2 = new Disciplina();
 		
+		Disciplina k3 = new Disciplina();
+		
 		repositorio.save(k1);
 		
 		repositorio.save(k2);
 		
+		repositorio.save(k3);
 		
 		restTemplate = new RestTemplate();
 	
@@ -62,6 +62,24 @@ final String BASE_PATH = "http://localhost:8080/disciplina";
 		assertEquals(tamanhoDaListaDeDisciplinasesperado, disciplinas.size());
 		
 	}
+	@Test
+	public void deveFuncionarACriacaoDeUmNovoDisciplina() throws JsonParseException, JsonMappingException, IOException {
+		
+		Disciplina disciplina = new Disciplina("geografia", null, null, null);
+		
+		restTemplate.postForObject(BASE_PATH+"/salvar", 
+				disciplina, Disciplina.class);
+		
+		String resposta = restTemplate.
+				getForObject(BASE_PATH+ "/listar", String.class);
+		
+		List<Disciplina> disciplinas = MAPPER.readValue(resposta,
+				MAPPER.getTypeFactory().
+				constructCollectionLikeType(List.class, Disciplina.class));
+		
+		assertEquals("geografia", disciplinas.get(0).getNome());
+		
+}
 	
 
 }

@@ -1,9 +1,7 @@
 package controllers;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,9 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Disciplina;
-
 import repositories.DisciplinaRepository;
 
 @Controller
@@ -33,6 +29,16 @@ public class DisciplinaController {
 		
 		return "disciplina/list";
 
+	}
+	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
+	public String saveDisciplina(ModelMap model) {
+		
+		Disciplina disciplina = new Disciplina();
+		model.addAttribute("disciplina", disciplina);
+		model.addAttribute("edit", false);
+		
+		return "disciplina/from";
+		
 	}
 
 	@RequestMapping (value= {"/edit-{id}-disciplina"}, method = RequestMethod.GET)
@@ -54,7 +60,7 @@ public class DisciplinaController {
 		model.addAttribute("mensagem", "Disciplina" + disciplina.getNome() + "atualizado com sucesso");
 
 		return "redirect:/disciplina/list";
- }
+	}
 	@RequestMapping (value= {"/delete-{id}-disciplina"}, method = RequestMethod.GET)
 	public String deleteEmployee(@PathVariable Integer id) {	
 		disciplinaRepository.deleteById(id);

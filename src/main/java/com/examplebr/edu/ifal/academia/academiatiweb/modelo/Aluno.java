@@ -20,7 +20,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "aluno")
 public class Aluno {
-
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -47,6 +46,12 @@ public class Aluno {
 
 	public Aluno() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Aluno [Id=" + id + ", nome=" + nome + ", matricula=" + matricula + "," + "disciplina=" + disciplinas
+				+ ", tipoAluno=" + tipoAluno + "]";
 	}
 
 	public Aluno(String nome, String matricula, Set<Disciplina> disciplinas, Endereco endereco, List<String> telefones,
@@ -115,7 +120,7 @@ public class Aluno {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
-		result = prime * result + ((disciplinas == null) ? 0 : disciplinas.hashCode());
+		result = prime * result + ((disciplinas == null) ? 0 : disciplinas.hashCode());	
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((telefones == null) ? 0 : telefones.hashCode());
 		result = prime * result + ((tipoAluno == null) ? 0 : tipoAluno.hashCode());

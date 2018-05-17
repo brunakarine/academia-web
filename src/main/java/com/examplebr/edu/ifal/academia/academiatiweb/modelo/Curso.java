@@ -9,12 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "curso")
 public class Curso {
-	
 	
 	@javax.persistence.Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -38,7 +35,6 @@ public class Curso {
 	public Curso() {
 		super();
 	}
-
 
 	@Override
 	public String toString() {
