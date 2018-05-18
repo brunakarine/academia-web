@@ -37,7 +37,7 @@ public class NotaController {
 	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
 	public String saveNota(ModelMap model) {
 		
-		Nota nota = new Nota();
+		Nota nota = new Nota(2);
 		model.addAttribute("nota", nota);
 		model.addAttribute("edit", false);
 		

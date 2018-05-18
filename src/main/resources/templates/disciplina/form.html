@@ -17,21 +17,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<form action="#" th:action="@{/aluno/new}" th:object="${aluno}" method="post">
-					    <div class="form-group">
-					    	<label th:text="Matricula" ></label>
-					        <input class="form-control" type="number" th:field="*{matricula}" />
-					    </div>
-					    
+					<form action="#" th:action="@{/disciplina/new}" th:object="${disciplina}" method="post">
+					  
 					    <div class="form-group">        
-					    	<label th:text="Nome" ></label>
+					    	<label th:text="Nome" />
 					    	<input class="form-control" type="text" th:field="*{nome}" />
 					    </div>
-					  
-					   
 					    <div class="form-group">  
-					          <label th:text="endereco" ></label>
-					          <input class="form-control" type="text" th:field="*{endereco.cidade}" />
+					          <label th:text="alunos" />
+					          <input class="form-control" type="number" th:field="*{disciplina}" />
+					    </div>
+					    <div class="form-group">  
+					          <label th:text="assuntos" />
+					          <input class="form-control" type="number" th:field="*{endereco}" />
+					    </div>
+					    <div class="form-group">  
+					          <label th:text="professores" />
+					          <input class="form-control" type="number" th:field="*{telefone}" />
 					    </div>
 					    
 					    <input type="submit" value="Enviar" class="btn btn-primary"/>

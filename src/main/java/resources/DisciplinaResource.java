@@ -25,7 +25,7 @@ public class DisciplinaResource {
 	 
 	 @RequestMapping(value= "/carregar", method= RequestMethod.GET)
 	 public String carregar() {
-		 Disciplina d = new Disciplina ();
+		 Disciplina d = new Disciplina("historia");
 		  
 		disciplinaRepository.save(d);
 		 return "ok"; 

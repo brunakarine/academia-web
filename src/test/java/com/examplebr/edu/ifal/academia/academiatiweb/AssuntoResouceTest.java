@@ -1,10 +1,8 @@
 package com.examplebr.edu.ifal.academia.academiatiweb;
 
 import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +14,6 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Assunto;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import repositories.AssuntoRepository;
 
 @RunWith(SpringRunner.class)

@@ -25,8 +25,9 @@
 					      	<tr>
 						        <th>Id</th>
 						        <th>Nome</th>
-						        <th>Idade</th>
 						        <th>Matricula</th>
+						        <th>endereco</th>
+						     
 						         <th>Ação</th>
 					      	</tr>
 				    	</thead>
@@ -34,8 +35,9 @@
 					    	<tr th:each="a : ${alunosList}">
 						        <td th:text="${a.id}"></td>
 						        <td th:text="${a.nome}"></td>
-						        <td th:text="${a.idade}"></td>
 						        <td th:text="${a.matricula}"></td>
+						        <td th:text="${a.endereco.cidade + ' - ' + a.endereco.estado}"></td>
+						        
 						        <td></td>
 					      	</tr>
 					    </tbody>

@@ -81,5 +81,5 @@ public class ProfessorResourceTest {
 		
 		assertEquals("Paulo", professores.get(0).getNome());
 		
-}
-}
+}	
+ }

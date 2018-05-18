@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "nota")
 public class Nota {
 	
 	@Id
@@ -28,9 +30,10 @@ public class Nota {
 	@ElementCollection
 	private List<Double> notas = new ArrayList<>();
 
-	public Nota() {
+	public Nota(double valor) {
 		super();
 	}
+	
 	@Override
 	public String toString() {
 	  return "Nota [Id=" + id + ", Aluno=" + aluno + ", Disciplina="+ disciplina+", Valor=" + valor + ",]";

@@ -25,7 +25,7 @@ public class NotaResource {
 	
 	@RequestMapping(value= "/carregar", method= RequestMethod.GET)
     public String carregar() {
-	 Nota b = new Nota();
+	 Nota b = new Nota(8.0);
 	 
 	 notarepository.save(b);
 	 return "b"; 

@@ -1,9 +1,7 @@
 package controllers;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,9 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
-
 import repositories.AlunoRepository;
 
 @Controller
@@ -35,15 +31,14 @@ public class AlunoController {
 		return "aluno/list";
 
 	}
-	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
-	public String saveAluno(ModelMap model) {
+	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)
+	public String newAluno(ModelMap model) {
 		
 		Aluno aluno = new Aluno();
 		model.addAttribute("aluno", aluno);
 		model.addAttribute("edit", false);
 		
-		return "aluno/from";
-		
+		return "aluno/form";	
 	}
 	
 	@RequestMapping (value= {"/edit-{id}-aluno"}, method = RequestMethod.GET)
@@ -51,13 +46,13 @@ public class AlunoController {
 		Aluno aluno = alunoRepository.getOne(id);
 		model.addAttribute("aluno", aluno);
 		model.addAttribute("edit", true);
-		return "aluno/from";
-
+		return "aluno/form";
 	}
+	
 	@RequestMapping (value= {"/edit-{id}-aluno"}, method = RequestMethod.POST)
 	public String updateAluno(@Valid Aluno aluno, BindingResult result, ModelMap model) {	
 		if(result.hasErrors()) {
-			return "aluno/from";
+			return "aluno/form";
 		}
 		
 		alunoRepository.saveAndFlush(aluno);

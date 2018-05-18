@@ -1,7 +1,6 @@
 package com.examplebr.edu.ifal.academia.academiatiweb;
 
 import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.util.List;
 import org.junit.Before;
@@ -67,7 +66,7 @@ final String BASE_PATH = "http://localhost:8080/api/escola";
 	@Test
 	public void deveFuncionarACriacaoDeUmaNovaEscola() throws JsonParseException, JsonMappingException, IOException {
 		
-		Escola escola = new Escola(null, null, "Francisco Leão");
+		Escola escola = new Escola("Francisco Leão");
 		
 		restTemplate.postForObject(BASE_PATH+"/salvar", 
 				escola, Escola.class);
@@ -83,4 +82,4 @@ final String BASE_PATH = "http://localhost:8080/api/escola";
 		
 }
 
-}
+ }

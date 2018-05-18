@@ -33,11 +33,11 @@ final String BASE_PATH = "http://localhost:8080/api/disciplina";
 	public void setUp(){
 		repositorio.deleteAll();
 		
-		Disciplina k1 = new Disciplina();
+		Disciplina k1 = new Disciplina("histroria");
 		
-		Disciplina k2 = new Disciplina();
+		Disciplina k2 = new Disciplina("filosofia");
 		
-		Disciplina k3 = new Disciplina();
+		Disciplina k3 = new Disciplina("português");
 		
 		repositorio.save(k1);
 		
@@ -65,7 +65,7 @@ final String BASE_PATH = "http://localhost:8080/api/disciplina";
 	@Test
 	public void deveFuncionarACriacaoDeUmaNovaDisciplina() throws JsonParseException, JsonMappingException, IOException {
 		
-		Disciplina disciplina = new Disciplina("geografia", null, null, null);
+		Disciplina disciplina = new Disciplina("geografia");
 		
 		restTemplate.postForObject(BASE_PATH+"/salvar", 
 				disciplina, Disciplina.class);
@@ -79,7 +79,6 @@ final String BASE_PATH = "http://localhost:8080/api/disciplina";
 		
 		assertEquals("geografia", disciplinas.get(0).getNome());
 		
-}
-	
+}	
 
 }

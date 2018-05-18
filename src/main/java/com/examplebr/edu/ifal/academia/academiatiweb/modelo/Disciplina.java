@@ -28,23 +28,23 @@ public class Disciplina {
 	@ManyToMany
 	private List<Professor> professores;
 
+	
 	public Disciplina() {
 		super();
 	}
 	
+	@Override
 	public String toString() {
 		return "Disciplina[Id=" + id + ", aluno=" + alunos + ", assunto=" + assuntos + ", professores="
 				+ professores.toString() + "]";
 	}
-
-	public Disciplina(String nome, List<Aluno> alunos, List<Professor> professores,
-			List<Assunto> assuntos) {
+	
+	public Disciplina(String nome) {
 		super();
 		this.nome = nome;
-		this.alunos = alunos;
-		this.professores = professores;
-		this.assuntos = assuntos;
+		
 	}
+
 
 	public String getNome() {
 		return nome;

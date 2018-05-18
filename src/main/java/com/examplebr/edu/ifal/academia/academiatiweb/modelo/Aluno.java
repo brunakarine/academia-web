@@ -53,7 +53,8 @@ public class Aluno {
 		return "Aluno [Id=" + id + ", nome=" + nome + ", matricula=" + matricula + "," + "disciplina=" + disciplinas
 				+ ", tipoAluno=" + tipoAluno + "]";
 	}
-
+	
+	
 	public Aluno(String nome, String matricula, Set<Disciplina> disciplinas, Endereco endereco, List<String> telefones,
 			TIPO_ALUNO tipoAluno) {
 		super();
@@ -111,6 +112,14 @@ public class Aluno {
 
 	public void setTipoAluno(TIPO_ALUNO tipoAluno) {
 		this.tipoAluno = tipoAluno;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override

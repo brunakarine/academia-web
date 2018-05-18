@@ -21,7 +21,7 @@ public class Curso {
 	private String nome;
 	
 	@OneToMany
-	private List<Disciplina> disciplina = new ArrayList<>();
+	private List<Disciplina> disciplinas = new ArrayList<>();
 	
 	@OneToMany
 	private List<Aluno> alunos = new ArrayList<Aluno>();
@@ -38,7 +38,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", nome=" + nome + ", disciplina=" + disciplina +  "]";
+		return "Curso [id=" + id + ", nome=" + nome + ", disciplina=" + disciplinas +  "]";
 	}
 
 	public String getNome() {
@@ -52,11 +52,11 @@ public class Curso {
 
 
 	public List<Disciplina> getDisciplina() {
-		return disciplina;
+		return disciplinas;
 	}
 
 	public void setDisciplina(List<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+		this.disciplinas = disciplina;
 	}
 	
 	
@@ -74,7 +74,7 @@ public class Curso {
 		int result = 1;
 		result = prime * result + ((id ==  null ) ?  0  : id . hashCode ());;
 		result = prime * result + ((nome == null)? 0 : nome.hashCode());
-		result = prime * result + ((disciplina == null) ? 0:disciplina.hashCode());
+		result = prime * result + ((disciplinas == null) ? 0:disciplinas.hashCode());
 		result = prime * result + ((alunos == null)? 0 : alunos.hashCode());
 		return result;
 		
@@ -98,10 +98,10 @@ public class Curso {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-				if (disciplina == null) {
-			if (other.disciplina != null)
+				if (disciplinas == null) {
+			if (other.disciplinas != null)
 				return false;
-		} else if (!disciplina.equals(other.disciplina))
+		} else if (!disciplinas.equals(other.disciplinas))
 			    return false;
 			if (alunos == null) {
 				if (other.alunos != null)
