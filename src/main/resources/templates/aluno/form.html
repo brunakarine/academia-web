@@ -1,44 +1,136 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+<meta charset="UTF-8">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-		
-		<title>Insert title here</title>
-	</head>
-	
-	</body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<form action="#" th:action="@{/aluno/new}" th:object="${aluno}" method="post">
-					    <div class="form-group">
-					    	<label th:text="Matricula" ></label>
-					        <input class="form-control" type="number" th:field="*{matricula}" />
-					    </div>
-					    
-					    <div class="form-group">        
-					    	<label th:text="Nome" ></label>
-					    	<input class="form-control" type="text" th:field="*{nome}" />
-					    </div>
-					  
-					   
-					    <div class="form-group">  
-					          <label th:text="endereco" ></label>
-					          <input class="form-control" type="text" th:field="*{endereco.cidade}" />
-					    </div>
-					    
-					    <input type="submit" value="Enviar" class="btn btn-primary"/>
- 
-					</form>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+	crossorigin="anonymous"></script>
+
+<title>Academia-web-Aluno</title>
+</head>
+<body style="background-color: #6AB3D8;">
+
+</body>
+<h1 style="text-align:center"> Cadastro de Aluno</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<form action="#" th:action="@{/aluno/save}" th:object="${aluno}"
+				method="POST">
+				<div class="form-group">
+
+					<label th:text="Nome">Nome do aluno</label> <input
+						class="form-control" type="text" th:field="*{nome}" />
 				</div>
-			</div>
+
+				
+				<div class="form-group">
+					<label th:text="Matricula">matricula</label> <input
+						class="form-control" th:field="*{nome}" />
+				</div>
+
+				<div class="form-group">
+					<label th:text="Endereço">endereco</label> <input class="form-control"
+						th:field="*{nome}" />
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputState">Estado</label> <select id="inputState"
+							class="form-control">
+							<option selected>escolher...</option>
+							<option>...</option>
+						</select>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputState">Cidade</label> <select id="inputState"
+							class="form-control">
+							<option selected>escolher...</option>
+							<option>...</option>
+						</select>
+					</div>
+					<div class="form-group col-md-2">
+						<label for="inputZip">numero</label> <input type="text"
+							class="form-control" id="inputZip">
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label th:text="Bairro">bairro</label> <input class="form-control"
+						th:field="*{nome}" />
+				</div>
+				<div class="form-group col-md-4">
+					<label th:text="Cep">cep</label> <input class="form-control"
+						th:field="*{nome}" />
+				</div>
+				
+
+				<div class="form-group">
+					<label th:text="tipo">Tipo Aluno</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios"
+							id="exampleRadios1" value="option1" checked> <label
+							class="form-check-label" for="exampleRadios1">
+							Bolsista_Assistencia </label>
+					</div>
+
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios"
+							id="exampleRadios1" value="option1" checked> <label
+							class="form-check-label" for="exampleRadios1">
+							Bolsista_Extensao </label>
+					</div>
+
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios"
+							id="exampleRadios1" value="option1" checked> <label
+							class="form-check-label" for="exampleRadios1">
+							Bolsista_Pesquisa </label>
+					</div>
+
+
+
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios"
+							id="exampleRadios1" value="option1" checked> <label
+							class="form-check-label" for="exampleRadios1"> Sem_Bolsa
+						</label>
+
+					</div>
+
+
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+						Enviar
+					</button>
+					<button type="submit" class="btn btn-danger">
+						<i class="fa fa-times" aria-hidden="true"></i> Cancelar
+					</button>
+				</div>
+			</form>
+
+
+
+
+
+			</form>
 		</div>
-	</body>
+	</div>
+</div>
+</body>
 </html>
