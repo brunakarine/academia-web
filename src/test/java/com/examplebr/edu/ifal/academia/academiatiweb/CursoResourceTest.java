@@ -48,13 +48,16 @@ public class CursoResourceTest {
 		repositorio.save(c2);
 
 		repositorio.save(c3);
+		
+		restTemplate = new RestTemplate();
 
 	}
 
 	@Test
 	public void deveFuncionarAListagemDeTodosOsCursos() throws JsonParseException, JsonMappingException, IOException {
 
-		String resposta = restTemplate.getForObject(BASE_PATH + "/listar", String.class);
+		String resposta = restTemplate.
+				getForObject(BASE_PATH + "/listar", String.class);
 
 		List<Curso> cursos = MAPPER.readValue(resposta,
 				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Curso.class));
@@ -68,12 +71,15 @@ public class CursoResourceTest {
 
 		Curso curso = new Curso("administração");
 
-		restTemplate.postForObject(BASE_PATH + "/salvar", curso, Curso.class);
+		restTemplate.postForObject
+			(BASE_PATH + "/salvar", curso, Curso.class);
 
-		String resposta = restTemplate.getForObject(BASE_PATH + "/listar", String.class);
+		String resposta = restTemplate.
+				getForObject(BASE_PATH + "/listar", String.class);
 
 		List<Curso> cursos = MAPPER.readValue(resposta,
-				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Curso.class));
+				MAPPER.getTypeFactory().
+				constructCollectionLikeType(List.class, Curso.class));
 
 		assertEquals("administração", cursos.get(0).getNome());
 

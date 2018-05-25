@@ -80,5 +80,4 @@ final String BASE_PATH = "http://localhost:8080/api/disciplina";
 		assertEquals("geografia", disciplinas.get(0).getNome());
 		
 }	
-
-}
+ }

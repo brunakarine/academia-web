@@ -25,7 +25,7 @@ public class EscolaController {
 	public String listEscola(ModelMap model) {
 		List<Escola> escolas = escolaRepository.findAll();
 
-		model.addAttribute("escola", escolas);
+		model.addAttribute("escolasList", escolas);
 
 		model.addAttribute("message", "Lista de Escolas");
 		System.out.println("list");
@@ -34,14 +34,14 @@ public class EscolaController {
 
 	}
 
-	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveEscola(ModelMap model) {
+	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
+	public String newEscola(ModelMap model) {
 
 		Escola escola = new Escola();
 		model.addAttribute("escola", escola);
 		model.addAttribute("edit", false);
 
-		return "escola/from";
+		return "escola/form";
 
 	}
 
@@ -50,14 +50,14 @@ public class EscolaController {
 		Escola escola = escolaRepository.getOne(id);
 		model.addAttribute("escola", escola);
 		model.addAttribute("edit", true);
-		return "escola/from";
+		return "escola/form";
 
 	}
 
 	@RequestMapping(value = { "/edit-{id}-escola" }, method = RequestMethod.POST)
 	public String updateAluno(@Valid Escola escola, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			return "escola/from";
+			return "escola/form";
 		}
 
 		escolaRepository.saveAndFlush(escola);

@@ -49,6 +49,8 @@ final String BASE_PATH = "http://localhost:8080/api/escola";
 		repositorio.save(e2);
 		
 		repositorio.save(e3);
+		
+		restTemplate = new RestTemplate();
 			
 	}
 	@Test

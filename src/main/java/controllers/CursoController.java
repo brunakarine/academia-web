@@ -27,23 +27,23 @@ public class CursoController {
 	public String listCurso(ModelMap model) {
 		List<Curso> cursos = cursoRepository.findAll();
 
-		model.addAttribute("Curso", cursos);
+		model.addAttribute("cursosList", cursos);
 
-		model.addAttribute("message", "Lista de Cursos");
+		model.addAttribute("message", "Lista de cursos");
 		System.out.println("list");
 
-		return "curso";
+		return "curso/List";
 
 	}
 
-	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveCurso(ModelMap model) {
+	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
+	public String newCurso(ModelMap model) {
 
 		Curso curso = new Curso();
 		model.addAttribute("curso", curso);
 		model.addAttribute("edit", false);
 
-		return "curso/from";
+		return "curso/form";
 
 	}
 
@@ -52,14 +52,14 @@ public class CursoController {
 		Curso curso = cursoRepository.getOne(id);
 		model.addAttribute("curso", curso);
 		model.addAttribute("edit", true);
-		return "curso/from";
+		return "curso/form";
 
 	}
 
 	@RequestMapping(value = { "/edit-{id}-curso" }, method = RequestMethod.POST)
 	public String updateCurso(@Valid Curso curso, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			return "curso/from";
+			return "curso/form";
 		}
 
 		cursoRepository.saveAndFlush(curso);

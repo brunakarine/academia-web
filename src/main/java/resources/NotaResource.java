@@ -26,13 +26,12 @@ public class NotaResource {
 	@RequestMapping(value= "/carregar", method= RequestMethod.GET)
     public String carregar() {
 	 Nota b = new Nota(8.0);
-	 
 	 notarepository.save(b);
 	 return "b"; 
 	 }
 	
 	@RequestMapping(value= "/{id}", method=RequestMethod.GET)
-	public Nota buscar(@PathVariable("id") int id) {
+	public Nota buscar(@PathVariable("id") Integer id) {
 		return notarepository.getOne(id);
 		
 	}

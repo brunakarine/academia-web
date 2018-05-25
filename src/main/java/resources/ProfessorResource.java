@@ -31,7 +31,7 @@ public class ProfessorResource {
 	 }
 	 
 	@RequestMapping(value= "{id}", method=RequestMethod.GET)
-	public Professor buscar(@PathVariable("id") int id) {
+	public Professor buscar(@PathVariable("id") Integer id) {
 		return professorRepository.getOne(id);	
 	}
 

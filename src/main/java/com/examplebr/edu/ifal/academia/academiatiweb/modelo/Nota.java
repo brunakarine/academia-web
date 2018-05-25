@@ -45,6 +45,19 @@ public class Nota {
 		this.disciplina = disciplina;
 		this.valor = valor;
 	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Double> getNotas() {
+		return notas;
+	}
 
 	public Aluno getAluno() {
 		return aluno;

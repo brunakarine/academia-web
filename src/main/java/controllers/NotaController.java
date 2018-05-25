@@ -34,14 +34,14 @@ public class NotaController {
 		return "notas/list";
 
 	}
-	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
-	public String saveNota(ModelMap model) {
+	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)
+	public String newNota(ModelMap model) {
 		
-		Nota nota = new Nota(2);
+		Nota nota = new Nota(0);
 		model.addAttribute("nota", nota);
 		model.addAttribute("edit", false);
 		
-		return "nota/from";
+		return "nota/form";
 		
 	}
 	@RequestMapping (value= {"/edit-{id}-nota"}, method = RequestMethod.GET)
@@ -49,13 +49,13 @@ public class NotaController {
 		Nota nota = notaRepository.getOne(id);
 		model.addAttribute("nota", nota);
 		model.addAttribute("edit", true);
-		return "nota/from";
+		return "nota/form";
 
 	}
 	@RequestMapping (value= {"/edit-{id}-nota"}, method = RequestMethod.POST)
 	public String updateNota(@Valid Nota nota, BindingResult result, ModelMap model) {	
 		if(result.hasErrors()) {
-			return "nota/from";
+			return "nota/form";
 		}
 		notaRepository.saveAndFlush(nota);
 		

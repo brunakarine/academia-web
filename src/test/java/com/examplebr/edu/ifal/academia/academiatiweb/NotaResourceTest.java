@@ -90,7 +90,8 @@ public class NotaResourceTest {
 		String resposta = restTemplate.getForObject(BASE_PATH + "/listar", String.class);
 
 		List<Nota> notas = MAPPER.readValue(resposta,
-				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Nota.class));
+				MAPPER.getTypeFactory().
+				constructCollectionLikeType(List.class, Nota.class));
 
 		assertEquals(6, notas.get(0).getNots());
 

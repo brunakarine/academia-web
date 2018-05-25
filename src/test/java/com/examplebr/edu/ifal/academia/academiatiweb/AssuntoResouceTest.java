@@ -52,7 +52,8 @@ public class AssuntoResouceTest {
 	@Test
 	public void deveFuncionarAListagemDeTodosOsAssuntos() throws JsonParseException, JsonMappingException, IOException {
 
-		String resposta = restTemplate.getForObject(BASE_PATH + "/listar", String.class);
+		String resposta = restTemplate.
+				getForObject(BASE_PATH + "/listar", String.class);
 
 		List<Assunto> assuntos = MAPPER.readValue(resposta,
 				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Assunto.class));
@@ -66,12 +67,15 @@ public class AssuntoResouceTest {
 
 		Assunto assunto = new Assunto("raiz quadrada");
 
-		restTemplate.postForObject(BASE_PATH + "/salvar", assunto, Assunto.class);
+		restTemplate.postForObject
+			(BASE_PATH + "/salvar", assunto, Assunto.class);
 
-		String resposta = restTemplate.getForObject(BASE_PATH + "/listar", String.class);
+		String resposta = restTemplate.
+				getForObject(BASE_PATH + "/listar", String.class);
 
 		List<Assunto> assuntos = MAPPER.readValue(resposta,
-				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Assunto.class));
+				MAPPER.getTypeFactory().
+				constructCollectionLikeType(List.class, Assunto.class));
 
 		assertEquals("raiz quadrada", assuntos.get(0).getNome());
 

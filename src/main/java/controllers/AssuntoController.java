@@ -32,14 +32,14 @@ public class AssuntoController {
 
 	}
 
-	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveAssunto(ModelMap model) {
+	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
+	public String newAssunto(ModelMap model) {
 
 		Assunto assunto = new Assunto();
 		model.addAttribute("assunto", assunto);
 		model.addAttribute("edit", false);
 
-		return "assunto/from";
+		return "assunto/form";
 
 	}
 
@@ -48,14 +48,14 @@ public class AssuntoController {
 		Assunto assunto = assuntoRepository.getOne(id);
 		model.addAttribute("assunto", assunto);
 		model.addAttribute("edit", true);
-		return "assunto/from";
+		return "assunto/form";
 
 	}
 
 	@RequestMapping(value = { "/edit-{id}-assunto" }, method = RequestMethod.POST)
 	public String updateAssunto(@Valid Assunto assunto, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			return "assunto/from";
+			return "assunto/form";
 		}
 
 		assuntoRepository.saveAndFlush(assunto);

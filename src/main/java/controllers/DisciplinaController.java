@@ -30,14 +30,14 @@ public class DisciplinaController {
 		return "disciplina/list";
 
 	}
-	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
-	public String saveDisciplina(ModelMap model) {
+	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)
+	public String newDisciplina(ModelMap model) {
 		
 		Disciplina disciplina = new Disciplina();
 		model.addAttribute("disciplina", disciplina);
 		model.addAttribute("edit", false);
 		
-		return "disciplina/from";
+		return "disciplina/form";
 		
 	}
 
@@ -46,13 +46,13 @@ public class DisciplinaController {
 		Disciplina disciplina = disciplinaRepository.getOne(id);
 		model.addAttribute("disciplina", disciplina);
 		model.addAttribute("edit", true);
-		return "disciplina/from";
+		return "disciplina/form";
 
 	}
 	@RequestMapping (value= {"/edit-{id}-disciplina"}, method = RequestMethod.POST)
 	public String updateAluno(@Valid Disciplina disciplina, BindingResult result, ModelMap model) {	
 		if(result.hasErrors()) {
-			return "disciplina/from";
+			return "disciplina/form";
 		}
 		
 		disciplinaRepository.saveAndFlush(disciplina);

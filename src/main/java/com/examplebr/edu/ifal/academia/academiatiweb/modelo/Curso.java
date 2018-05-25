@@ -40,6 +40,15 @@ public class Curso {
 	public String toString() {
 		return "Curso [id=" + id + ", nome=" + nome + ", disciplina=" + disciplinas +  "]";
 	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;

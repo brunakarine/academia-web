@@ -40,6 +40,15 @@ public class Professor {
 		return "Professor [Id=" + id + ", matricula=" + matricula + ", nome=" + nome + ", tipo_professor="
 				+ tipo_professor + "]";
 	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;

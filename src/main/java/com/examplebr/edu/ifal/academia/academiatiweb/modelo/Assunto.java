@@ -28,6 +28,15 @@ public class Assunto {
 	public String toString() {
 		return "Assunto [id=" + id + ", nome=" + nome + "]";
 	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;

@@ -32,7 +32,7 @@ public class DisciplinaResource {
 	 }
 	 
 	@RequestMapping(value= "{id}", method=RequestMethod.GET)
-	public Disciplina buscar(@PathVariable("id") int id) {
+	public Disciplina buscar(@PathVariable("id") Integer id) {
 		return disciplinaRepository.getOne(id);
 		
 	}

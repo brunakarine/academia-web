@@ -31,14 +31,14 @@ public class ProfessorController {
 		return "professor/list";
 
 	}
-	@RequestMapping (value= {"/new"}, method = RequestMethod.POST)
-	public String saveProfessor(ModelMap model) {
+	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)
+	public String newProfessor(ModelMap model) {
 		
 		Professor professor = new Professor();
 		model.addAttribute("professor", professor);
 		model.addAttribute("edit", false);
 		
-		return "professor/from";
+		return "professor/form";
 		
 	}
 	@RequestMapping (value= {"/edit-{id}-professor"}, method = RequestMethod.GET)
@@ -46,13 +46,13 @@ public class ProfessorController {
 		Professor professor = professorRepository.getOne(id);
 		model.addAttribute("professor", professor);
 		model.addAttribute("edit", true);
-		return "professor/from";
+		return "professor/form";
 
 	}
 	@RequestMapping (value= {"/edit-{id}-professor"}, method = RequestMethod.POST)
 	public String updateProfessor(@Valid Professor professor, BindingResult result, ModelMap model) {	
 		if(result.hasErrors()) {
-			return "professor/from";
+			return "professor/form";
 		}
 		
 		professorRepository.saveAndFlush(professor);
