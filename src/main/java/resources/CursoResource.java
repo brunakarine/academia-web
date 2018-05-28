@@ -20,7 +20,7 @@ public class CursoResource {
 	@RequestMapping(value= "/salvar", method= RequestMethod.POST)
 	 public Curso salvar(@RequestBody Curso curso) { 
 		cursorepository.save(curso);
-		 return curso;
+		return curso;
 	 }
 	
 	@RequestMapping(value= "/carregar", method= RequestMethod.GET)
