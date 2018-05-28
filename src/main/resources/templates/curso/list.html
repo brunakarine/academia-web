@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
@@ -10,32 +11,35 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 		
-		<title>Insert title here</title>
+		<title>List curso</title>
 	</head>
+	<body style="background-color: #CDDEE9;">
+	</body>
+
 	<body>
+		<div class="p-3 mb-2 bg-secondary text-white"><i><font size="5" face="Chaucer"><center>Lista de Cursos</center></font></i></div>
+
 		<div class="container">
-			<div class="row" th:unless="${#lists.isEmpty(cursosList)}">
+			<div class="row" th:unless="${#lists.isEmpty(alunosList)}">
 			 
 			 	<div class="col-md-8">
 	    
 				 	<h2 th:text="${message}"></h2>
 				  
-				  	<table class="table">
+				  	<table class="table bg-secondary text-white">
 				    	<thead>
 					      	<tr>
-						        <th>Id</th>
-						        <th>Nome</th>
-						        <th>disciplinas</th>
-						        <th>alunos</th>
-						         <th>Ação</th>
+						        <th><i>Id</i></th>
+						        <th><i>Nome</i></th>
+								<th><i>Ação</i></th>
+					
 					      	</tr>
 				    	</thead>
 					    <tbody>
-					    	<tr th:each="a : ${cursoList}">
+					    	<tr th:each="a : ${alunosList}">
 						        <td th:text="${a.id}"></td>
 						        <td th:text="${a.nome}"></td>
-						        <td th:text="${a.disciplinas}"></td>
-						        <td th:text="${a.alunos}"></td>
+						        
 						        <td></td>
 					      	</tr>
 					    </tbody>
