@@ -13,7 +13,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Professor;
 import repositories.ProfessorRepository;
 
 @Controller
-@RequestMapping("/professor")
+@RequestMapping("professor")
 public class ProfessorController {
 	
 	@Autowired
@@ -28,7 +28,7 @@ public class ProfessorController {
 		model.addAttribute("massage", "Lista de professores");
 		System.out.println("list");
 		
-		return "professor/list";
+		return "professorlist";
 
 	}
 	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)

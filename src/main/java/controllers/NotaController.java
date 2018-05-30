@@ -16,7 +16,7 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Nota;
 import repositories.NotaRepository;
 
 @Controller
-@RequestMapping("/nota")
+@RequestMapping("nota")
 public class NotaController {
 	
 	@Autowired
@@ -31,31 +31,31 @@ public class NotaController {
 		model.addAttribute("massage", "Lista de notas");
 		System.out.println("list");
 		
-		return "notas/list";
+		return "notaslist";
 
 	}
-	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)
+	@RequestMapping (value= {"new"}, method = RequestMethod.GET)
 	public String newNota(ModelMap model) {
 		
 		Nota nota = new Nota(0);
 		model.addAttribute("nota", nota);
 		model.addAttribute("edit", false);
 		
-		return "nota/form";
+		return "notaform";
 		
 	}
-	@RequestMapping (value= {"/edit-{id}-nota"}, method = RequestMethod.GET)
+	@RequestMapping (value= {"edit-{id}-nota"}, method = RequestMethod.GET)
 	public String editNota(@PathVariable("id") Integer id, ModelMap model) {	
 		Nota nota = notaRepository.getOne(id);
 		model.addAttribute("nota", nota);
 		model.addAttribute("edit", true);
-		return "nota/form";
+		return "notaform";
 
 	}
 	@RequestMapping (value= {"/edit-{id}-nota"}, method = RequestMethod.POST)
 	public String updateNota(@Valid Nota nota, BindingResult result, ModelMap model) {	
 		if(result.hasErrors()) {
-			return "nota/form";
+			return "notaform";
 		}
 		notaRepository.saveAndFlush(nota);
 		
@@ -67,7 +67,7 @@ public class NotaController {
 	@RequestMapping (value= {"/delete-{id}-nota"}, method = RequestMethod.GET)
 	public String deleteEmployee(@PathVariable Integer id) {	
 		notaRepository.deleteById(id);
-		return "redirect:/nota/list";
+		return "redirect:notalist";
 	}	
 }
 

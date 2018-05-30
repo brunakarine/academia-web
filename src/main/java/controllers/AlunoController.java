@@ -13,13 +13,13 @@ import com.examplebr.edu.ifal.academia.academiatiweb.modelo.Aluno;
 import repositories.AlunoRepository;
 
 @Controller
-@RequestMapping("/aluno")
+@RequestMapping("aluno")
 public class AlunoController {
 	
 	@Autowired
 	AlunoRepository alunoRepository;
 	
-	@RequestMapping(value= "/list", method=RequestMethod.GET)
+	@RequestMapping(value= "list", method=RequestMethod.GET)
 	public String listAluno(ModelMap model) {
 		List<Aluno> alunos = alunoRepository.findAll();
 		
@@ -28,7 +28,7 @@ public class AlunoController {
 		model.addAttribute("massage", "Lista de alunos");
 		System.out.println("list");
 		
-		return "aluno/list";
+		return "alunolist";
 
 	}
 	@RequestMapping (value= {"/new"}, method = RequestMethod.GET)

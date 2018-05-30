@@ -38,7 +38,7 @@ public class NotaResourceTest {
 
 	private ObjectMapper MAPPER = new ObjectMapper();
 
-	@Before
+	
 	public void setUp() {
 
 		repositorio.deleteAll();
